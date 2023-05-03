@@ -27,5 +27,10 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"pixi.js": "^7.2.4",
+		"pixijs": "^7.1.4",
+		"sass": "^1.62.0"
+	}
 }
