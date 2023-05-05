@@ -51,4 +51,14 @@
 			transform: translate(-50%, 0);
 		}
 	}
+
+	@media (max-width: 640px) {
+		.round-block {
+			width: 140px;
+			height: 140px;
+			&__img {
+				height: 140px;
+			}
+		}
+	}
 </style>

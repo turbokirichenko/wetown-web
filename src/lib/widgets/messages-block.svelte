@@ -200,4 +200,20 @@
         width: 100%;
         border-radius: 300px;
     }
+
+    @media (max-width: 640px) {
+        .heading-segment {
+
+        &__line {
+            &-1,
+            &-3 {
+                text-align: center;
+                position: inherit;
+            }
+            &-2 {
+                text-align: center;
+            }
+        }
+    }
+    }
 </style>

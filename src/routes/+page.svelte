@@ -72,9 +72,13 @@
 		</div>
 		<div class="contacts-page"  id="_contacts-page">
 			<WaterBlock>
-				<div>
-					some text
-				</div>
+				<h1 class="title">НАША КОМАНДА</h1>
+				<ul class="contacts">
+					<li class="contacts__elem">+7960529****</li>
+					<li class="contacts__elem">ИНН:2222132424724</li>
+					<li class="contacts__elem">ОГРН:284772918871182</li>
+					<li class="contacts__elem">wetown.me © 2023</li>
+				</ul>
 			</WaterBlock>
 		</div>
 	</section>
@@ -201,6 +205,27 @@
 		height: $h-sm;
 	}
 
+	.title {
+		padding-top: 70px;
+		font-size: 48px;
+		width: 100%;
+		text-align: center;
+	}
+
+
+	.contacts {
+		width: 100%;
+		padding: 80px 0;
+		list-style-type: none;
+		&__elem {
+			padding: 10px 0;
+			width: 360px;
+			text-align: center;
+			margin: auto;
+			font-weight: 600;
+		}
+	}
+
 	@keyframes fade {
 		0% {
 			opacity: 0;
@@ -208,6 +233,15 @@
 
 		100% {
 			opacity: 1;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.header-lander {
+			&__left-wing,
+			&__right-wing {
+				display: none;
+			}
 		}
 	}
 </style>
