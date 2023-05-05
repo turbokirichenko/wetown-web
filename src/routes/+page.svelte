@@ -1,15 +1,22 @@
 <script>
+	import { fade } from "svelte/transition";
 	import CredentialsNav from "$lib/widgets/credentials-nav.svelte";
 	import SlimeNav from "$lib/widgets/slime-nav.svelte";
 	import GreetingBox from "$lib/widgets/greeting-box.svelte";
 	import MainTextSample from "$lib/widgets/main-text-sample.svelte";
 	import TextWallBlock from "$lib/widgets/text-wall-block.svelte";
 	import ImagesWall from "$lib/widgets/images-wall.svelte";
+	import MessagesBlock from "$lib/widgets/messages-block.svelte";
+	import MiniguideBlock from "$lib/widgets/miniguide-block.svelte";
+	import BackgroundGradientBlock from "$lib/widgets/background-gradient-block.svelte";
+	import ParadiseBlock from "$lib/widgets/paradise-block.svelte";
+	import BackgroundSun from "$lib/widgets/background-sun.svelte";
 	import WaterBlock from "$lib/widgets/water-block.svelte";
-	import { NAV_MAP, SLIME_MAP, SOCHI_IMG, TOURISTS_IMG } from "./contsants";
+	import { NAV_MAP, SLIME_MAP, SOCHI_IMG, TOURISTS_IMG, BEACH_IMG, GIRL_IMG, BOY_IMG } from "./contsants";
 </script>
 
 <main class="page">
+	<img class="background-motion" src="background-motion.svg" alt="motion" />
 	<header class="page__header-segment">
 		<div class="header-lander">
 			<article class="header-lander__left-wing">
@@ -24,7 +31,7 @@
 		</div>
 	</header>
 	<section class="page__perfomance-segment">
-		<div class="simple-page">
+		<div class="simple-page" id="_simple-page">
 			<div class="simple-page__heading-block">
 				<GreetingBox />
 			</div>
@@ -40,7 +47,30 @@
 				/>
 			</div>
 		</div>
-		<div class="contacts-page">
+		<div class="messages-page"  id="_messages-page">
+			<BackgroundGradientBlock colorType={3}>
+				<MessagesBlock
+					userAvatarTop={BOY_IMG}
+					userAvatarBottom={GIRL_IMG}
+				 />
+			</BackgroundGradientBlock>
+		</div>
+		<div class="paradise-page"  id="_paradise-page">
+			<ParadiseBlock 
+				imageSrc={BEACH_IMG} 
+				momentSrcTop={TOURISTS_IMG}
+				momentSrcBottom={SOCHI_IMG}
+			/>
+		</div>
+		<div class="miniguide-page"  id="_miniguide-page">
+			<BackgroundGradientBlock colorType={5}>
+				<MiniguideBlock />
+			</BackgroundGradientBlock>
+		</div>
+		<div class="accordion-page"  id="_accordion-page">
+			<BackgroundSun />
+		</div>
+		<div class="contacts-page"  id="_contacts-page">
 			<WaterBlock>
 				<div>
 					some text
@@ -53,7 +83,13 @@
 
 <style lang="scss">
 
+	$h-lg: 901px;
+	$h-md: 841px;
+	$h-sm: 420px;
+
 	.page {
+		position: relative;
+		overflow: hidden;
 		&__header-segment {
 			width: 100%;
 		}
@@ -90,10 +126,30 @@
 		}
 	}
 
+	.background-motion {
+		animation-name: fade;
+		animation-duration: 2s;
+		z-index: -1;
+		position: absolute;
+		display: block;
+		width: 100%;
+		min-width: 1280px;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+
 	.simple-page {
 		margin: auto;
 		max-width: 960px;
 		height: 841px;
+		position: relative;
+		animation-name: fade;
+		opacity: 0;
+		animation-delay: 1s;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+
 		&__heading-block {
 			margin: auto;
 			padding-top: 53px;
@@ -118,9 +174,40 @@
 		}
 	}
 
+	.messages-page {
+		width: 100%;
+		height: $h-md;
+		position: relative;
+	}
+
+	.miniguide-page {
+		width: 100%;
+		height: $h-md;
+		position: relative;
+	}
+
+	.paradise-page {
+		width: 100%;
+		height: $h-lg;
+	}
+
+	.accordion-page {
+		width: 100%;
+		height: $h-lg;
+	}
+
 	.contacts-page {
 		width: 100%;
-		height: 421px;
-		position: relative;
+		height: $h-sm;
+	}
+
+	@keyframes fade {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
 	}
 </style>

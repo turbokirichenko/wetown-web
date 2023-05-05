@@ -31,6 +31,7 @@
 	"dependencies": {
 		"pixi.js": "^7.2.4",
 		"pixijs": "^7.1.4",
-		"sass": "^1.62.0"
+		"sass": "^1.62.0",
+		"svelte-scrollto": "^0.2.0"
 	}
 }
