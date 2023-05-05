@@ -5,14 +5,16 @@
     
     let toggleIndex = 1;
     const onToggleIndex = (index: number) => () => {
+        console.log('ok')
         if (index >= 0 && index < 6) {
             toggleIndex = index;
-        }   
+        }  
+        return 1; 
     }
 </script>
 
 <section class="slime-nav">
-    {#each slimesMap as { href, icon }, index}
+    {#each slimesMap as { href, icon, onclick }, index}
         {#if index < 6}
         <article class="slime-nav__stretch-block">
             <a 
@@ -22,7 +24,7 @@
                     `vertical-toggle_elem-${index+1 || 1}`
                 } 
                 href={href} 
-                on:click={onToggleIndex(index)}
+                on:click={ () => { onToggleIndex(index)(); onclick(); } }
             >
                 <div class="vertical-toggle__content">
                     <img class="slime-icon" src={icon} alt="src img" />

@@ -7,4 +7,5 @@ export type NavEntity = {
 export type SlimeEntity = {
     href: string,
     icon: string,
+    onclick: () => void
 }
