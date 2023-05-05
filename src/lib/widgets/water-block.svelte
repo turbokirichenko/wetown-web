@@ -1,5 +1,5 @@
 <section class="water-block">
-    <slot></slot>
+    <slot />
 </section>
 
 <style lang="scss">

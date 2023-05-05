@@ -75,5 +75,20 @@
         font-size: 20px;
         cursor: pointer;
     }
+
+    @media (max-width: 640px) {
+        .title-one {
+            font-size: 48px;
+            line-height: 55px;
+        }
+        .title-two {
+            position: inherit;
+            font-size: 28px;
+        }
+        .title-three {
+            font-size: 48px;
+            line-height: 55px;
+        }
+    }
 </style>
 

@@ -83,7 +83,7 @@
 
     @media (max-width: 700px) {
         .some-text {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 
