@@ -32,6 +32,12 @@
 	</header>
 	<section class="page__perfomance-segment">
 		<div class="simple-page" id="_simple-page">
+			<div class="simple-page__front-images-block">
+				<ImagesWall 
+					imageSrc1={TOURISTS_IMG} 
+					imageSrc2={SOCHI_IMG}
+				/>
+			</div>
 			<div class="simple-page__heading-block">
 				<GreetingBox />
 			</div>
@@ -39,12 +45,6 @@
 				<TextWallBlock>
 					<MainTextSample />
 				</TextWallBlock>
-			</div>
-			<div class="simple-page__front-images-block">
-				<ImagesWall 
-					imageSrc1={TOURISTS_IMG} 
-					imageSrc2={SOCHI_IMG}
-				/>
 			</div>
 		</div>
 		<div class="messages-page"  id="_messages-page">
@@ -72,7 +72,15 @@
 		</div>
 		<div class="contacts-page"  id="_contacts-page">
 			<WaterBlock>
-				<h1 class="title">НАША КОМАНДА</h1>
+				<h1 class="title">ОСТАВЬТЕ ЗАЯВКУ</h1>
+				<h3 class="minititle">по вопросам сотрудничества</h3>
+				<div>
+					<form class="toggle-form">
+						<input class="toggle-input" placeholder="Ваше имя"/>
+						<input class="toggle-input" type="email" placeholder="Email"/>
+						<button type="submit" class="toggle-button">ОТПРАВИТЬ</button>
+					</form>
+				</div>
 				<ul class="contacts">
 					<li class="contacts__elem">+7960529****</li>
 					<li class="contacts__elem">ИНН:2222132424724</li>
@@ -171,10 +179,9 @@
 			width: 100%;
 			max-width: 640px;
 			height: 100vh;
-			top: 0;
+			top: 320px;
 			left: 50%;
 			transform: translate(-50%, 0);
-			padding-top: 320px;
 		}
 	}
 
@@ -202,20 +209,58 @@
 
 	.contacts-page {
 		width: 100%;
-		height: $h-sm;
+		height: $h-lg;
 	}
 
 	.title {
-		padding-top: 70px;
+		padding-top: 80px;
 		font-size: 48px;
 		width: 100%;
 		text-align: center;
 	}
 
+	.minititle {
+		padding-top: 10px;
+		font-size: 24px;
+		margin: auto;
+		width: 80%;
+		text-align: center;
+		color: #00000080;
+	}
+
+	.toggle-form {
+		max-width: 480px;
+		margin: auto;
+		padding: 20px 16px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.toggle-input {
+		padding: 12px 16px;
+		border-radius: 20px;
+		height: 60px;
+		font-size: 20px;
+		background: #f9f9f980;
+		border: none;
+	}
+
+	.toggle-button {
+		width: 100%;
+		height: 60px;
+		border-radius: 20px;
+		height: 60px;
+		font-size: 20px;
+		border: 3px solid #f9f9f9;
+		background: none;
+		color: #f9f9f9;
+	}
+
 
 	.contacts {
 		width: 100%;
-		padding: 80px 0;
+		padding: 160px 0;
 		list-style-type: none;
 		&__elem {
 			padding: 10px 0;
@@ -223,6 +268,7 @@
 			text-align: center;
 			margin: auto;
 			font-weight: 600;
+			color: #f9f9f9;
 		}
 	}
 

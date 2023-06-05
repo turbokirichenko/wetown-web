@@ -1,3 +1,5 @@
+
+<div class="wave"></div>
 <section class="water-block">
     <slot />
 </section>
@@ -5,11 +7,18 @@
 <style lang="scss">
     @use '$lib/styles/colors' as colors;
 
+    .wave {
+        height: 240px;
+        background: nth(colors.$colors, 4);
+        animation: waves 2s ease-in-out infinite;
+    }
+
     .water-block {
+        position: relative;
+        top: -160px;
         width: 100%;
         height: 100%;
-        background-color: nth(colors.$colors, 4);
-        animation: waves 2s ease-in-out infinite;
+        background: linear-gradient(nth(colors.$colors, 4), nth(colors.$colors, 4), colors.$black);
     }
 
 
