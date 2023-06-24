@@ -14,9 +14,11 @@
     </article>
     <article class="greeting-box__line-4">
         <div class="button-wrapper">
-            <button type="submit" class="toggle-button">
-                поехали!
-            </button>
+            <a href="#_contacts-page">
+                <button type="submit" class="toggle-button">
+                    поехали!
+                </button>
+            </a>
         </div>
     </article>
 </section>

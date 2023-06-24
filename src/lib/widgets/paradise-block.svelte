@@ -1,32 +1,43 @@
 <script lang="ts">
+    import NetDesk from "$lib/shared/net-desk.custom.svelte";
+    import type { CardEntity } from "$lib/types";
     export let imageSrc: string = "";
-    export let momentSrcTop: string = "";
-    export let momentSrcBottom: string = "";
+    export let cardMap: CardEntity[] = [];
 </script>
 
 <section class="paradise-block">
     <div class="paradise-block__background-segment">
         <div class="background-blur-image">
-            <img class="background-blur-image__image" src={imageSrc} />
+            <img class="background-blur-image__image" src={imageSrc} alt="blur img"/>
             <div class="background-blur-image__opacity" />
         </div>
     </div>
     <div class="paradise-block__front-segment">
         <div class="photo-wall">
             <article class="photo-wall__heading">
-                <h1 class="heading-title">МОМЕНТЫ ОТДЫХА</h1>
+                <h1 class="heading-title">ПРИСОЕДИНЯЙСЯ</h1>
             </article>
-            <article class="photo-wall__top-elem">
-                <div class="photo-box">
-                    <div class="photo-box__content">
-                        <img class="moment-photo" src={momentSrcTop} alt="top src" />
+            <article class="photo-wall__segment">
+                <div class="achive-card">
+                    <div class="achive-card__elem">
+                        <NetDesk 
+                            icon={cardMap[0].icon}
+                            title={cardMap[0].title}
+                            description={cardMap[0].description}
+                            list={cardMap[0].list}
+                            text={'РЕГИСТРАЦИЯ'}
+                            bgColorNumber="1"
+                        />
                     </div>
-                </div>
-            </article>
-            <article class="photo-wall__bottom-elem">
-                <div class="photo-box">
-                    <div class="photo-box__content">
-                        <img class="moment-photo" src={momentSrcBottom} alt="bottom src" />
+                    <div class="achive-card__elem">
+                        <NetDesk 
+                            icon={cardMap[1].icon}
+                            title={cardMap[1].title}
+                            description={cardMap[1].description}
+                            list={cardMap[1].list}
+                            text={'ПОДКЛЮЧИТЬСЯ'}
+                            bgColorNumber="2"
+                        />
                     </div>
                 </div>
             </article>
@@ -89,7 +100,7 @@
     .photo-wall {
         width: 100%;
         height: 100%;
-        max-width: 640px;
+        max-width: 860px;
         margin: auto;
         position: relative;
 
@@ -99,48 +110,30 @@
             text-align: center;
         }
 
-        &__top-elem,
-        &__bottom-elem {
-            width: 360px;
-            height: 240px;
-            position: absolute;
-            background-color: white;
-        }
-
-        &__top-elem {
-            top: 200px;
-            right: -30px;
-        }
-
-        &__bottom-elem {
-            bottom: 140px;
-            left: -30px;
+        &__segment {
+            width: 100%;
+            padding-top: 30px;
         }
     }
-
-    .photo-box {
+    .achive-card {
         width: 100%;
         height: 100%;
-        padding: 20px;
-
-        box-shadow: 0px 0px 10px #00000080;
-
-        &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 15px;
+        gap: 60px;
+        &__elem {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            min-width: 320px;
+            max-width: 380px;
         }
     }
 
     .heading-title {
-        font-size: 48px;
+        font-size: 36px;
         font-weight: lighter;
         color: white;
-    }
-
-    .moment-photo {
-        display: block;
-        background-color: darkgray;
-        width: 100%;
     }
 </style>
