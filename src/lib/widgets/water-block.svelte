@@ -1,26 +1,74 @@
+<script>
+    export let headingText = "";
+</script>
 
-<div class="wave"></div>
 <section class="water-block">
-    <slot />
+    <div class="water-block__wave">
+        <div class="wave" />
+    </div>
+    <div class="water-block__background">
+        <p class="water-bg" />
+    </div>
+    <div class="water-block__content">
+        <slot />
+    </div>
 </section>
 
 <style lang="scss">
     @use '$lib/styles/colors' as colors;
 
-    .wave {
-        height: 240px;
-        background: nth(colors.$colors, 4);
-        animation: waves 2s ease-in-out infinite;
-    }
-
     .water-block {
         position: relative;
-        top: -160px;
+        width: 100%;
+        height: 100%;
+
+        &__wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+        }
+
+        &__background {
+            position: absolute;
+            top: 19%;
+            left: 0;
+            width: 100%;
+            height: 81%;
+        }
+
+        &__content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .wave {
+        width: 100%;
+        height: 100%;
+        background: nth(colors.$colors, 4);
+        animation: waves 2s ease-in-out infinite;
+
+        &__heading {
+            padding-top: 1.8rem;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 3rem;
+            color: colors.$white;
+            font-weight: bold;
+        }
+    }
+
+    .water-bg {
         width: 100%;
         height: 100%;
         background: linear-gradient(nth(colors.$colors, 4), nth(colors.$colors, 4), colors.$black);
     }
-
 
     @keyframes waves {
         0%, 100% {
