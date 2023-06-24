@@ -1,22 +1,27 @@
 <script>
-	import { fade } from "svelte/transition";
 	import CredentialsNav from "$lib/widgets/credentials-nav.svelte";
 	import SlimeNav from "$lib/widgets/slime-nav.svelte";
 	import GreetingBox from "$lib/widgets/greeting-box.svelte";
-	import MainTextSample from "$lib/widgets/main-text-sample.svelte";
-	import TextWallBlock from "$lib/widgets/text-wall-block.svelte";
-	import ImagesWall from "$lib/widgets/images-wall.svelte";
 	import MessagesBlock from "$lib/widgets/messages-block.svelte";
-	import MiniguideBlock from "$lib/widgets/miniguide-block.svelte";
 	import BackgroundGradientBlock from "$lib/widgets/background-gradient-block.svelte";
 	import ParadiseBlock from "$lib/widgets/paradise-block.svelte";
-	import BackgroundSun from "$lib/widgets/background-sun.svelte";
 	import WaterBlock from "$lib/widgets/water-block.svelte";
-	import { NAV_MAP, SLIME_MAP, SOCHI_IMG, TOURISTS_IMG, BEACH_IMG, GIRL_IMG, BOY_IMG } from "./contsants";
+	import ScrollBlock from "$lib/widgets/scroll-block.svelte";
+	import { 
+		NAV_MAP,
+		SLIME_MAP, 
+		STICKER_MAP,
+		CARD_MAP,
+		BEACH_IMG, 
+		GIRL_IMG, 
+		BOY_IMG 
+	} from "./contsants";
+	import NetDesk from "$lib/shared/net-desk.custom.svelte";
 </script>
 
 <main class="page">
-	<img class="background-motion" src="background-motion.svg" alt="motion" />
+	<!--
+	<img class="background-motion" src="background-motion.svg" alt="none"/>-->
 	<header class="page__header-segment">
 		<div class="header-lander">
 			<article class="header-lander__left-wing">
@@ -32,19 +37,11 @@
 	</header>
 	<section class="page__perfomance-segment">
 		<div class="simple-page" id="_simple-page">
-			<div class="simple-page__front-images-block">
-				<ImagesWall 
-					imageSrc1={TOURISTS_IMG} 
-					imageSrc2={SOCHI_IMG}
-				/>
-			</div>
 			<div class="simple-page__heading-block">
 				<GreetingBox />
 			</div>
-			<div class="simple-page__text-wall-block">
-				<TextWallBlock>
-					<MainTextSample />
-				</TextWallBlock>
+			<div class="simple-page__scroll-block">
+				<ScrollBlock propertyMap={STICKER_MAP} />
 			</div>
 		</div>
 		<div class="messages-page"  id="_messages-page">
@@ -56,19 +53,9 @@
 			</BackgroundGradientBlock>
 		</div>
 		<div class="paradise-page"  id="_paradise-page">
-			<ParadiseBlock 
-				imageSrc={BEACH_IMG} 
-				momentSrcTop={TOURISTS_IMG}
-				momentSrcBottom={SOCHI_IMG}
-			/>
-		</div>
-		<div class="miniguide-page"  id="_miniguide-page">
-			<BackgroundGradientBlock colorType={5}>
-				<MiniguideBlock />
-			</BackgroundGradientBlock>
-		</div>
-		<div class="accordion-page"  id="_accordion-page">
-			<BackgroundSun />
+			<ParadiseBlock imageSrc={BEACH_IMG} cardMap={CARD_MAP}>
+				<NetDesk />
+			</ParadiseBlock>
 		</div>
 		<div class="contacts-page"  id="_contacts-page">
 			<WaterBlock>
@@ -152,8 +139,7 @@
 	}
 
 	.simple-page {
-		margin: auto;
-		max-width: 960px;
+		width: 100%;
 		height: 841px;
 		position: relative;
 		animation-name: fade;
@@ -168,32 +154,18 @@
 			width: 360px;
 		}
 
-		&__text-wall-block {
-			padding-top: 53px;
-			margin: auto;
-			width: 360px;
-		}
-
-		&__front-images-block {
-			position: absolute;
+		&__scroll-block {
+			padding-top: 70px;
+			display: flex;
+			height: 400px;
 			width: 100%;
-			max-width: 640px;
-			height: 100vh;
-			top: 320px;
-			left: 50%;
-			transform: translate(-50%, 0);
+			gap: 38px;
 		}
 	}
 
 	.messages-page {
 		width: 100%;
-		height: $h-md;
-		position: relative;
-	}
-
-	.miniguide-page {
-		width: 100%;
-		height: $h-md;
+		height: $h-lg;
 		position: relative;
 	}
 
@@ -202,14 +174,24 @@
 		height: $h-lg;
 	}
 
-	.accordion-page {
+	.contacts-page {
 		width: 100%;
 		height: $h-lg;
 	}
 
-	.contacts-page {
+
+	.contacts {
 		width: 100%;
-		height: $h-lg;
+		padding: 160px 0;
+		list-style-type: none;
+		&__elem {
+			padding: 10px 0;
+			width: 360px;
+			text-align: center;
+			margin: auto;
+			font-weight: 600;
+			color: #f9f9f9;
+		}
 	}
 
 	.title {
@@ -255,21 +237,6 @@
 		border: 3px solid #f9f9f9;
 		background: none;
 		color: #f9f9f9;
-	}
-
-
-	.contacts {
-		width: 100%;
-		padding: 160px 0;
-		list-style-type: none;
-		&__elem {
-			padding: 10px 0;
-			width: 360px;
-			text-align: center;
-			margin: auto;
-			font-weight: 600;
-			color: #f9f9f9;
-		}
 	}
 
 	@keyframes fade {

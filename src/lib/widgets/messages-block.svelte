@@ -41,7 +41,7 @@
                         <div class="open-message">
                             <div class="open-message__content open-message__content-right">
                                 <span class="message-text">
-                                    Отлично! Мы как раз в поиске еще одного человека к нам, так что давай, подключайся
+                                    Отлично! Мы как раз в поиске еще одного человека к нам!
                                 </span>
                             </div>
                             <div class="open-message__user-avatar open-message__user-avatar-right">
@@ -53,6 +53,17 @@
             </article>
         </div>
     </div>
+    <footer class="footer-message">
+        <div class="footer-message__line">
+            <span class="footer-text">Помогаем найти людей и снимать <strong>дом</strong> вместе</span>
+        </div>
+        <div class="footer-message__line">
+            <span class="footer-text">так получится <strong>дешевле</strong></span>
+        </div>
+        <div class="footer-message__line">
+            <span class="footer-text">а условия жилья станут <strong>комфортнее</strong></span>
+        </div>
+    </footer>
 </section>
 
 
@@ -67,7 +78,7 @@
 
         &__heading {
             width: 100%;
-            padding-top: 120px;
+            padding-top: 140px;
             min-height: 120px;
         }
 
@@ -126,7 +137,7 @@
             max-width: 360px;
             width: 60%;
             min-width: 240px;
-            height: 160px;
+            height: 120px;
         }
     }
 
@@ -170,6 +181,23 @@
             bottom: 0;
             left: calc(100% + 12px);
         }
+    }
+
+    .footer-message {
+        margin-top: 60px;
+        width: 100%;
+        height: auto;
+
+        &__line {
+            text-align: center;
+        }
+    }
+
+    .footer-text {
+        color: white;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 300;
     }
 
     .message-text {
